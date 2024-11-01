@@ -31,7 +31,7 @@ public class excelFiles {
         XSSFSheet sheet = wb.getSheetAt(0);
 
         int totalNuOfRows = (sheet.getLastRowNum() + 1);
-        int totalNuOfCols = 5; // Update to 5 columns to match your test method parameters
+        int totalNuOfCols = 5;
 
         String[][] arrayExcelOfData = new String[totalNuOfRows][totalNuOfCols];
 
@@ -41,7 +41,7 @@ public class excelFiles {
                 if (row != null && row.getCell(j) != null) {
                     arrayExcelOfData[i][j] = row.getCell(j).toString();
                 } else {
-                    arrayExcelOfData[i][j] = ""; // Assign a default empty value if null
+                    arrayExcelOfData[i][j] = "";
                 }
             }
         }

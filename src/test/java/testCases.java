@@ -19,6 +19,7 @@ public class testCases extends testBase{
     public Object[][] getData() throws IOException {
         return excelData.getExcelData("userData.xlsx/");
     }
+
     @Test(dataProvider = "excelDataProvider")
     public void userRegister(String firstTxt,String secondTxt,String emailTxt,String Pass, String conPass)
     {

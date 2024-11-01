@@ -9,6 +9,7 @@ public class homePage extends pageBase {
     public homePage(WebDriver driver) {
         super(driver);
     }
+
     @FindBy(xpath = "/html/body/div[2]/main/div[3]/div/div[2]/div[2]/h2")
     public WebElement hotSeller;
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[3]/div/div[2]/div[4]/div/div/ol/li[1]/div/div/div[4]/div/div[2]/a[2]")
