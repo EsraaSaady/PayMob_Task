@@ -4,6 +4,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.homePage;
 import pages.profilePage;
+import pages.registerPage;
+
 import java.io.IOException;
 
 public class testCases extends testBase{
@@ -15,7 +17,7 @@ public class testCases extends testBase{
 
     @DataProvider(name = "excelDataProvider")
     public Object[][] getData() throws IOException {
-        return excelData.getExcelData("userData.xlsx/");  // Adjust filename as necessary
+        return excelData.getExcelData("userData.xlsx/");
     }
     @Test(dataProvider = "excelDataProvider")
     public void userRegister(String firstTxt,String secondTxt,String emailTxt,String Pass, String conPass)
@@ -40,7 +42,7 @@ public class testCases extends testBase{
 
     }
 @Test(dependsOnMethods = {"userReachHotseller"})
-    public void addProduct() throws InterruptedException {
+    public void addProduct() {
     baseObj= new pageBase(driver);
     homeObj= new homePage(driver);
     baseObj.hoverElement(homeObj.fisrtItem);
@@ -54,11 +56,7 @@ public class testCases extends testBase{
     homeObj.productTwo.click();
     baseObj.waitForElement(homeObj.successAdd);
     Assert.assertEquals(homeObj.successAdd.getText(),"You added product Breathe-Easy Tank to the comparison list.");
-    if (homeObj.itemCount.isDisplayed())
-    {
-        Assert.assertEquals(homeObj.itemCount.getText(),"2 items");
-    }
-    Thread.sleep(3000);
+    Assert.assertEquals(homeObj.itemCount.getText(),"2 items");
 
 }
    }
