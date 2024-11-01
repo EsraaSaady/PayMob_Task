@@ -41,14 +41,15 @@ public class testCases extends testBase{
 
 
     }
-@Test(dependsOnMethods = {"userReachHotseller"})
+
+    @Test(dependsOnMethods = {"userReachHotseller"})
     public void addProduct() {
-    baseObj= new pageBase(driver);
-    homeObj= new homePage(driver);
-    baseObj.hoverElement(homeObj.fisrtItem);
-    baseObj.waitForElement(homeObj.productOne);
-    homeObj.productOne.click();
-    baseObj.waitForElement(homeObj.successAdd);
+     baseObj= new pageBase(driver);
+     homeObj= new homePage(driver);
+     baseObj.hoverElement(homeObj.fisrtItem);
+     baseObj.waitForElement(homeObj.productOne);
+     homeObj.productOne.click();
+     baseObj.waitForElement(homeObj.successAdd);
     Assert.assertEquals(homeObj.successAdd.getText(),"You added product Radiant Tee to the comparison list.");
     baseObj.scrollToElement(homeObj.secondItem);
     baseObj.hoverElement(homeObj.secondItem);
@@ -58,5 +59,5 @@ public class testCases extends testBase{
     Assert.assertEquals(homeObj.successAdd.getText(),"You added product Breathe-Easy Tank to the comparison list.");
     Assert.assertEquals(homeObj.itemCount.getText(),"2 items");
 
+    }
 }
-   }
